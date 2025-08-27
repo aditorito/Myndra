@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pymongo
+python-dotenv
+twilio
+pyjwt
+passlib[bcrypt]
+redis
+requests
