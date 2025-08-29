@@ -174,7 +174,11 @@ export default function LogIn() {
                     });
 
                     console.log(responsce);
-
+                    if (responsce.data.status === 'success') {
+                      alert("Added to waiting list successfully");
+                    } else {
+                      alert("Failed to add to waiting list");
+                    }
                   }}
                   className="h-10 sm:h-12 rounded-lg bg-orange-500 hover:bg-orange-600 text-white font-semibold transition-colors shadow-lg text-sm sm:text-base font-sans w-full"
                 >
