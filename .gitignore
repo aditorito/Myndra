@@ -8,9 +8,5 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
-backend/venv/
-backend/app/.env
-env.bak/
-venv.bak/
-pip-log.txt
-pip-delete-this-directory.txt
+backend/node_modules/
+backend/.env/
