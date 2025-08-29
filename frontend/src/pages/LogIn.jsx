@@ -174,7 +174,7 @@ export default function LogIn() {
                       password: password
                     });
 
-                    if (responsce.data.status === 'success') {
+                    if (response.data.status === 'success') {
                       alert("Added to waiting list successfully");
                     } else {
                       alert("Failed to add to waiting list");
