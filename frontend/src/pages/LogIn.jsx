@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function LogIn() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -167,13 +168,12 @@ export default function LogIn() {
                 {/* Sign In Button */}
                 <button
                   onClick={async () => {
-                    const responsce = await axios.post(`http://localhost:5000/api/v1/users/waitinglist`, {
+                    const response = await axios.post(`${backendUrl}/users/waitinglist`, {
                       email: email,
                       phoneNo: phoneNo,
                       password: password
                     });
 
-                    console.log(responsce);
                     if (responsce.data.status === 'success') {
                       alert("Added to waiting list successfully");
                     } else {
