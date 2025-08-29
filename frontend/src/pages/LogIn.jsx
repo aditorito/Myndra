@@ -176,6 +176,10 @@ export default function LogIn() {
 
                     if (response.data.status === 'success') {
                       alert("Added to waiting list successfully");
+                      // Reset form fields
+                      setEmail('');
+                      setPhoneNo('');
+                      setPassword('');
                     } else {
                       alert("Failed to add to waiting list");
                     }
