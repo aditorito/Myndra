@@ -134,7 +134,7 @@ export default function WhatWeDo() {
   
   <article>
     <RImg
-      path="assets/images/group_50.svg"
+      path="/images/group_50.svg"
       alt="Tailored Examination Prep"
       imgProps={{ className: "h-14 w-14 mx-auto" }}
     />
@@ -162,7 +162,7 @@ export default function WhatWeDo() {
   
   <article className="sm:col-start-1 sm:col-end-3 lg:col-start-2 lg:col-end-4 lg:row-start-2">
     <RImg
-      path="assets/images/group_48.svg"
+      path="/images/group_48.svg"
       alt="Affordable mentorship"
       imgProps={{ className: "h-14 w-14 mx-auto" }}
     />
