@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
+import RImg from "../components/RImg.jsx";
+import { useNavigate } from "react-router-dom";
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function LogIn() {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -24,54 +27,66 @@ export default function LogIn() {
     <div className="min-h-screen w-full bg-white text-[#2F2F2F]">
       {/* Header */}
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
-        <div className="mx-auto max-w-[1200px] px-4 h-16 flex items-center justify-between">
-          <button
-            onClick={() => handleNavigation("/")}
-            aria-label="Myndra"
-            className="h-8 w-40 inline-flex items-center"
-          >
-            <div className="h-full w-full bg-gray-300 rounded flex items-center justify-center text-sm font-bold">
-              Myndra
-            </div>
-          </button>
-
-          <div className="hidden lg:flex items-center gap-8 text-lg">
-            <nav className="flex items-center gap-8">
-              <button onClick={() => handleNavigation("/")} className="hover:opacity-70">
-                Home
-              </button>
-              <button
-                onClick={() => handleNavigation("/AboutUs")}
-                className="hover:opacity-70"
-              >
-                About Us
-              </button>
-              <button className="font-bold">What we do</button>
-              <button
-                onClick={() => handleNavigation("/WhatWeDo")}
-                className="hover:opacity-70"
-              >
-                Careers
-              </button>
-            </nav>
-
-            <button
-              onClick={() => handleNavigation("/LogIn")}
-              className="border border-black text-black px-5 py-1.5 rounded-xl hover:bg-black hover:text-white transition-colors"
-            >
-              Log in
-            </button>
-          </div>
-
-          <button
-            onClick={() => setMenuOpen(true)}
-            className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border"
-            aria-label="Open menu"
-          >
-            <div className="h-5 w-5 bg-gray-400 rounded"></div>
-          </button>
-        </div>
-      </header>
+             <div className="mx-auto max-w-[1200px] px-4 h-16 flex items-center justify-between">
+               <button
+                 onClick={() => navigate("/")}
+                 aria-label="Myndra"
+                 className="h-8 w-40 inline-flex items-center"
+               >
+                 <RImg
+                   path="assets/images/myndralogotypebt_1.png"
+                   mobPath="assets/images/myndralogotypebt_1.png"
+                   alt="Myndra"
+                   imgProps={{ className: "h-full w-full object-contain" }}
+                 />
+               </button>
+     
+               <div className="hidden lg:flex items-center gap-8 text-lg">
+                 <nav className="flex items-center gap-8">
+                   <button onClick={() => navigate("/")} className="hover:opacity-70">
+                     Home
+                   </button>
+                   <button
+                     onClick={() => navigate("/AboutUs")}
+                     className="hover:opacity-70"
+                   >
+                     About Us
+                   </button>
+                   <button
+                     onClick={() => navigate("/WhatWeDo")} // ✅ correct route
+                     className="opacity-80 hover:opacity-100"
+                   >
+                     What We Do
+                   </button>
+                   <button
+                     onClick={() => navigate("/Careers")}
+                     className="hover:opacity-70"
+                   >
+                     Careers
+                   </button>
+                 </nav>
+     
+                 <button
+                   onClick={() => navigate("/LogIn")}
+                   className="border border-black text-black px-5 py-1.5 rounded-xl hover:bg-black hover:text-white transition-colors"
+                 >
+                   Log in
+                 </button>
+               </div>
+     
+               <button
+                 onClick={() => setMenuOpen(true)}
+                 className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border"
+                 aria-label="Open menu"
+               >
+                 <RImg
+                   path="assets/images/hamburger.svg"
+                   alt="menu"
+                   imgProps={{ className: "h-5 w-5" }}
+                 />
+               </button>
+             </div>
+           </header>
 
       {/* Centered login form */}
       <div className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center py-4 sm:py-8 px-4 sm:px-6">
