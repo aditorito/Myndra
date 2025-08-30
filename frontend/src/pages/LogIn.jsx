@@ -195,6 +195,7 @@ export default function LogIn() {
                       setEmail('');
                       setPhoneNo('');
                       setPassword('');
+                      navigate("/otp");
                     } else {
                       alert("Failed to add to waiting list");
                     }

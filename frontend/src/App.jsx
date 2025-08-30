@@ -7,6 +7,8 @@ import WhatWeDo from "./pages/WhatWeDo.jsx";
 import Careers from "./pages/Careers.jsx";
 import LogIn from "./pages/LogIn.jsx";
 import Test from "./pages/Test.jsx";
+import Otpvarification from "./pages/Otpvarification.jsx";
+
 
 class ErrorBoundary extends React.Component {
   constructor(p){ super(p); this.state = { hasError: false, err: null }; }
@@ -43,6 +45,8 @@ export default function App() {
           <Route path="/WhatWeDo" element={<WhatWeDo />} />
           <Route path="/Careers" element={<Careers />} />
           <Route path="/LogIn" element={<LogIn />} />
+          <Route path="/otp" element={<Otpvarification/>} />
+
           <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="/test" element={<Test />} />
         </Routes>
