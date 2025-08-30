@@ -27,26 +27,26 @@ function CtaCard({ className = "" }) {
 {/* Mobile stars - positioned to match the image */}
 {/* Mobile stars - positioned to match the image exactly */}
 <img
- src="/assets/images/star_4_1.svg"
+ src="/images/star_4_1.svg"
  alt=""
  aria-hidden="true"
  className="absolute right-[3rem] bottom-[2rem] h-8 w-8 sm:hidden z-20"
 />
 <img
- src="/assets/images/star_3_1.svg"
+ src="/images/star_3_1.svg"
  alt=""
  aria-hidden="true"
  className="absolute right-[0.5rem] bottom-[1rem] h-12 w-12 sm:hidden z-10 transform rotate-[-16deg]"
 />
 {/* Desktop stars - responsive positioning and sizing */}
 <img
- src="/assets/images/star_4_1.svg"
+ src="/images/star_4_1.svg"
  alt=""
  aria-hidden="true"
  className="hidden sm:block absolute right-[6rem] md:right-[8rem] lg:right-[11.5rem] bottom-[1.2rem] md:bottom-[1.5rem] lg:bottom-[2rem] h-[2.5rem] md:h-[3.5rem] lg:h-[4.5rem] z-20"
 />
 <img
- src="/assets/images/star_3_1.svg"
+ src="/images/star_3_1.svg"
  alt=""
  aria-hidden="true"
  className="hidden sm:block absolute right-[3rem] md:right-[5rem] lg:right-[7rem] bottom-[0.8rem] md:bottom-[1rem] lg:bottom-[1.5rem] h-[4rem] md:h-[5.5rem] lg:h-[7rem] z-10 transform rotate-[-16deg]"
