@@ -20,8 +20,8 @@ export default function AboutUs() {
       className="h-8 w-40 inline-flex items-center"
     >
       <RImg
-        path="assets/images/myndralogotypebt_1.png"
-        mobPath="assets/images/myndralogotypebt_1.png"
+        path="/images/myndralogotypebt_1.png"
+        mobPath="/images/myndralogotypebt_1.png"
         alt="Myndra"
         imgProps={{ className: "h-full w-full object-contain" }}
       />
@@ -66,7 +66,7 @@ export default function AboutUs() {
       aria-label="Open menu"
     >
       <RImg
-        path="assets/images/hamburger.svg"
+        path="/images/hamburger.svg"
         alt="menu"
         imgProps={{ className: "h-5 w-5" }}
       />
@@ -99,10 +99,10 @@ export default function AboutUs() {
 
           <div className="relative mt-8" aria-hidden="true">
             <div className="absolute left-3 top-2 -rotate-[12deg]">
-              <RImg path="assets/images/vector_7.svg" alt="" imgProps={{ className: "h-5 w-5" }} />
+              <RImg path="/images/vector_7.svg" alt="" imgProps={{ className: "h-5 w-5" }} />
             </div>
             <div className="absolute right-6 top-10">
-              <RImg path="assets/images/vector_8.svg" alt="" imgProps={{ className: "h-6 w-6" }} />
+              <RImg path="/images/vector_8.svg" alt="" imgProps={{ className: "h-6 w-6" }} />
             </div>
           </div>
 

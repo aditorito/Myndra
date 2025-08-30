@@ -24,7 +24,7 @@ export default function Home() {
               className="h-8 w-44 inline-flex items-center"
             >
               <img
-                src="/assets/images/myndralogotypebt_1.png"
+                src="/images/myndralogotypebt_1.png"
                 alt="Myndra"
                 className="h-full w-full brightness-0 invert object-contain"
               />
@@ -68,7 +68,7 @@ export default function Home() {
               className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border"
               aria-label="Open menu"
             >
-              <img src="/assets/images/hamburger.svg" alt="menu" className="h-5 w-5" />
+              <img src="/images/hamburger.svg" alt="menu" className="h-5 w-5" />
             </button>
           </div>
         </header>
@@ -163,17 +163,17 @@ export default function Home() {
           {/* Decorative cluster inside Why Myndra */}
           <div className="hidden lg:block pointer-events-none select-none">
             <img
-              src="/assets/images/star.svg"
+              src="/images/star.svg"
               alt=""
               className="absolute right-10 top-10  h-96 rotate-[10deg] opacity-90"
             />
             <img
-              src="/assets/images/star_2.svg"
+              src="/images/star_2.svg"
               alt=""
               className="absolute right-96 top-84 h-28  -rotate-[20deg] opacity-90"
             />
             <img
-              src="/assets/images/vector_5.svg"
+              src="/images/vector_5.svg"
               alt=""
               className="absolute left-0 top-[-20px]  "
             />

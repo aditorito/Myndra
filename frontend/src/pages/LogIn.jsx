@@ -35,7 +35,7 @@ export default function LogIn() {
                >
                  <RImg
                    path="/images/myndralogotypebt_1.png"
-                   mobPath="/assets/images/myndralogotypebt_1.png"
+                   mobPath="/images/myndralogotypebt_1.png"
                    alt="Myndra"
                    imgProps={{ className: "h-full w-full object-contain" }}
                  />

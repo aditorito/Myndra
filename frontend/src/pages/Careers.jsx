@@ -20,8 +20,8 @@ export default function Careers() {
             className="h-8 w-40 inline-flex items-center"
           >
             <RImg
-              path="assets/images/myndralogotypebt_1.png"
-              mobPath="assets/images/myndralogotypebt_1.png"
+              path="/images/myndralogotypebt_1.png"
+              mobPath="/images/myndralogotypebt_1.png"
               alt="Myndra"
               imgProps={{ className: "h-full w-full object-contain" }}
             />
@@ -66,7 +66,7 @@ export default function Careers() {
             aria-label="Open menu"
           >
             <RImg
-              path="assets/images/hamburger.svg"
+              path="/images/hamburger.svg"
               alt="menu"
               imgProps={{ className: "h-5 w-5" }}
             />
@@ -88,7 +88,7 @@ export default function Careers() {
               Be a Part of Our Journey
             </h1>
             <div className="mt-4 inline-flex items-center gap-3 opacity-90">
-              <RImg path="assets/images/group_1.svg" mobPath="assets/images/group_1.svg" alt="" imgProps={{ className: "h-6 w-auto" }} />
+              <RImg path="/images/group_1.svg" mobPath="/images/group_1.svg" alt="" imgProps={{ className: "h-6 w-auto" }} />
             </div>
           </section>
 
@@ -109,14 +109,14 @@ export default function Careers() {
             <div className="relative mx-auto flex items-center justify-center">
               {/* Big green circle with text */}
               <img
-                src="/assets/images/think_out_of_the_box.svg"
+                src="/images/think_out_of_the_box.svg"
                 alt="Think Outside the Box"
                 className="w-[350px] h-[350px] sm:w-[450px] sm:h-[450px] relative" />
 
 
               {/* Gradient/wavy shape behind person */}
               <img
-                src="/assets/images/vector_12.svg"
+                src="/images/vector_12.svg"
                 alt=""
                 className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] opacity-80"
               />
@@ -125,7 +125,7 @@ export default function Careers() {
               <div className="absolute left-[-405px] top-[110%] -translate-y-1/2 -translate-x-1/2 bg-[#F8F8F8] rounded-3xl p-6 flex items-center gap-5 shadow-lg">
 
                 <img
-                  src="/assets/images/envelope_with_red__badge.png"
+                  src="/images/envelope_with_red__badge.png"
                   alt="Email"
                   className="h-16 w-16 rounded-xl object-contain"
                 />
