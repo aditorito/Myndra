@@ -13,62 +13,62 @@ export default function WhatWeDo() {
       <Menu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
       {/* Header */}
-<header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
-  <div className="mx-auto max-w-[1200px] px-4 h-16 flex items-center justify-between">
-    <button
-      onClick={() => navigate("/")}
-      aria-label="Myndra"
-      className="h-8 w-40 inline-flex items-center"
-    >
-      <RImg
-        path="/images/myndralogotypebt_1.png"
-        mobPath="/images/myndralogotypebt_1.png"
-        alt="Myndra"
-        imgProps={{ className: "h-full w-full object-contain" }}
-      />
-    </button>
-    
-    <div className="hidden lg:flex items-center gap-8 text-lg">
-      <nav className="flex items-center gap-8">
-        <button onClick={() => navigate("/")} className="hover:opacity-70">
-          Home
-        </button>
-        <button
-          onClick={() => navigate("/AboutUs")}
-          className="hover:opacity-70"
-        >
-          About Us
-        </button>
-        <button className="font-bold">What we do</button>
-        <button
-          onClick={() => navigate("/Careers")}
-          className="hover:opacity-70"
-        >
-          Careers
-        </button>
-      </nav>
-      
-      <button
-        onClick={() => navigate("/LogIn")}
-        className="border border-black text-black px-5 py-1.5 rounded-xl hover:bg-black hover:text-white transition-colors"
-      >
-        Log in
-      </button>
-    </div>
+      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
+        <div className="mx-auto max-w-[1200px] px-4 h-16 flex items-center justify-between">
+          <button
+            onClick={() => navigate("/")}
+            aria-label="Myndra"
+            className="h-8 w-40 inline-flex items-center"
+          >
+            <RImg
+              path="/images/myndralogotypebt_1.png"
+              mobPath="/images/myndralogotypebt_1.png"
+              alt="Myndra"
+              imgProps={{ className: "h-full w-full object-contain" }}
+            />
+          </button>
 
-    <button
-      onClick={() => setMenuOpen(true)}
-      className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border"
-      aria-label="Open menu"
-    >
-      <RImg
-        path="/images/hamburger.svg"
-        alt="menu"
-        imgProps={{ className: "h-5 w-5" }}
-      />
-    </button>
-  </div>
-</header>
+          <div className="hidden lg:flex items-center gap-8 text-lg">
+            <nav className="flex items-center gap-8">
+              <button onClick={() => navigate("/")} className="hover:opacity-70">
+                Home
+              </button>
+              <button
+                onClick={() => navigate("/AboutUs")}
+                className="hover:opacity-70"
+              >
+                About Us
+              </button>
+              <button className="font-bold">What we do</button>
+              <button
+                onClick={() => navigate("/Careers")}
+                className="hover:opacity-70"
+              >
+                Careers
+              </button>
+            </nav>
+
+            <button
+              onClick={() => navigate("/LogIn")}
+              className="border border-black text-black px-5 py-1.5 rounded-xl hover:bg-black hover:text-white transition-colors"
+            >
+              Log in
+            </button>
+          </div>
+
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border"
+            aria-label="Open menu"
+          >
+            <RImg
+              path="/images/hamburger.svg"
+              alt="menu"
+              imgProps={{ className: "h-5 w-5" }}
+            />
+          </button>
+        </div>
+      </header>
 
       {/* Hero Background Text */}
       <div className="relative">
@@ -86,7 +86,7 @@ export default function WhatWeDo() {
         </div>
 
         {/* Foreground Content */}
- <main className="relative z-10 mx-auto max-w-[1100px] px-4 pt-[14rem] pb-20">
+        <main className="relative z-10 mx-auto max-w-[1100px] px-4 pt-[14rem] pb-20">
           <section className="text-center">
             <h1
               className="text-[clamp(1.75rem,5vw,4rem)] font-extrabold text-[#055258]"
@@ -102,96 +102,149 @@ export default function WhatWeDo() {
             </p>
           </section>
 
-{/* Features Section */}
-<section className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
-  <article>
-    <RImg
-      path="/images/group_48.svg"
-      alt="Cutting edge AI"
-      imgProps={{ className: "h-14 w-14 mx-auto" }}
-    />
-    <div
-      className="mt-3 text-base font-medium"
-      style={{ fontFamily: "Poppins" }}
-    >
-      Cutting edge AI
-    </div>
-  </article>
-  
-  <article>
-    <RImg
-      path="/images/group_52.svg"
-      alt="No location boundaries"
-      imgProps={{ className: "h-14 w-14 mx-auto" }}
-    />
-    <div
-      className="mt-3 text-base font-medium"
-      style={{ fontFamily: "Poppins" }}
-    >
-      No location boundaries
-    </div>
-  </article>
-  
-  <article>
-    <RImg
-      path="/images/group_50.svg"
-      alt="Tailored Examination Prep"
-      imgProps={{ className: "h-14 w-14 mx-auto" }}
-    />
-    <div
-      className="mt-3 text-base font-medium"
-      style={{ fontFamily: "Poppins" }}
-    >
-      Tailored Examination Prep
-    </div>
-  </article>
-  
-  <article className="sm:col-span-2 lg:col-start-1 lg:col-end-3 lg:row-start-2">
-    <RImg
-      path="/images/group_53.svg"
-      alt="Round-the-clock expert guidance"
-      imgProps={{ className: "h-14 w-14 mx-auto" }}
-    />
-    <div
-      className="mt-3 text-base font-medium"
-      style={{ fontFamily: "Poppins" }}
-    >
-      Round-the-clock expert guidance
-    </div>
-  </article>
-  
-  <article className="sm:col-start-1 sm:col-end-3 lg:col-start-2 lg:col-end-4 lg:row-start-2">
-    <RImg
-      path="/images/group_48.svg"
-      alt="Affordable mentorship"
-      imgProps={{ className: "h-14 w-14 mx-auto" }}
-    />
-    <div
-      className="mt-3 text-base font-medium"
-      style={{ fontFamily: "Poppins" }}
-    >
-      Affordable - Top-quality mentorship
-    </div>
-  </article>
-</section>
+          {/* Features Section */}
+          <section className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
+            <article>
+              <div className="relative w-fit mx-auto">
+                {/* Original image */}
+                <RImg
+                  path="/images/group_48.svg"
+                  alt="Affordable mentorship"
+                  imgProps={{ className: "h-14 w-14 mx-auto" }}
+                />
+
+                {/* Overlay image fully covering the original */}
+                <img
+                  src="/images/ai_chip_with_golden_prongs_and_stars-removebg-preview.png"
+                  alt="Overlay"
+                  className="absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+              <div
+                className="mt-3 text-base font-medium"
+                style={{ fontFamily: "Poppins" }}
+              >
+                Cutting edge AI
+              </div>
+            </article>
+
+            <article>
+              <div className="relative w-fit mx-auto">
+                {/* Original image */}
+                <RImg
+                  path="/images/group_48.svg"
+                  alt="Affordable mentorship"
+                  imgProps={{ className: "h-14 w-14 mx-auto" }}
+                />
+
+                {/* Overlay image fully covering the original */}
+                <img
+                  src="/images/minimalist_3d_location_pin_icon-removebg-preview.png"
+                  alt="Overlay"
+                  className="absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+              <div
+                className="mt-3 text-base font-medium"
+                style={{ fontFamily: "Poppins" }}
+              >
+                No location boundaries
+              </div>
+            </article>
+
+            <article>
+              <div className="relative w-fit mx-auto">
+                {/* Original image */}
+                <RImg
+                  path="/images/group_48.svg"
+                  alt="Affordable mentorship"
+                  imgProps={{ className: "h-14 w-14 mx-auto" }}
+                />
+
+                {/* Overlay image fully covering the original */}
+                <img
+                  src="/images/pencil_on_textured_paper_mob_-removebg-preview.png"
+                  alt="Overlay"
+                  className="absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+              <div
+                className="mt-3 text-base font-medium"
+                style={{ fontFamily: "Poppins" }}
+              >
+                Tailored Examination Prep
+              </div>
+            </article>
+
+            <article className="sm:col-span-2 lg:col-start-1 lg:col-end-3 lg:row-start-2">
+              <div className="relative w-fit mx-auto">
+                {/* Original image */}
+                <RImg
+                  path="/images/group_48.svg"
+                  alt="Affordable mentorship"
+                  imgProps={{ className: "h-14 w-14 mx-auto" }}
+                />
+
+                {/* Overlay image fully covering the original */}
+                <img
+                  src="/images/minimalist_analog_clock_design-removebg-preview.png"
+                  alt="Overlay"
+                  className="absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+              <div
+                className="mt-3 text-base font-medium"
+                style={{ fontFamily: "Poppins" }}
+              >
+                Round-the-clock expert guidance
+              </div>
+            </article>
+
+            <article className="sm:col-start-1 sm:col-end-3 lg:col-start-2 lg:col-end-4 lg:row-start-2">
+              <div className="relative w-fit mx-auto">
+                {/* Original image */}
+                <RImg
+                  path="/images/group_48.svg"
+                  alt="Affordable mentorship"
+                  imgProps={{ className: "h-14 w-14 mx-auto" }}
+                />
+
+                {/* Overlay image fully covering the original */}
+                <img
+                  src="/images/minimalist_3d_user_icon-removebg-preview.png"
+                  alt="Overlay"
+                  className="absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+
+              <div
+                className="mt-3 text-base font-medium"
+                style={{ fontFamily: "Poppins" }}
+              >
+                Affordable - Top-quality mentorship
+              </div>
+            </article>
+
+
+          </section>
 
           {/* Text Section */}
-<section className="mt-20">
-  <p
-    className="mx-auto max-w-[80ch] text-center text-[clamp(1rem,2.2vw,1.25rem)] leading-7"
-    style={{ fontFamily: "Playfair Display" }}
-  >
-    We make <strong>personalisation, cost, and quality</strong> the core of everything we deliver.
-    <br /><strong>Myndra</strong> adapts to your goals, tracks your progress, and provides precise support exactly when you need it.
-  </p>
-  <p
-    className="mx-auto max-w-[86ch] text-center text-[clamp(1rem,2.2vw,1.25rem)] leading-7 mt-8"
-    style={{ fontFamily: "Playfair Display" }}
-  >
-    With <strong>Myndra</strong>, success isn't limited by circumstance.
-    <br />We give learners the tools to compete, excel, and shape their futures—driven by innovation and focused on results.
-  </p>
-</section>
+          <section className="mt-20">
+            <p
+              className="mx-auto max-w-[80ch] text-center text-[clamp(1rem,2.2vw,1.25rem)] leading-7"
+              style={{ fontFamily: "Playfair Display" }}
+            >
+              We make <strong>personalisation, cost, and quality</strong> the core of everything we deliver.
+              <br /><strong>Myndra</strong> adapts to your goals, tracks your progress, and provides precise support exactly when you need it.
+            </p>
+            <p
+              className="mx-auto max-w-[86ch] text-center text-[clamp(1rem,2.2vw,1.25rem)] leading-7 mt-8"
+              style={{ fontFamily: "Playfair Display" }}
+            >
+              With <strong>Myndra</strong>, success isn't limited by circumstance.
+              <br />We give learners the tools to compete, excel, and shape their futures—driven by innovation and focused on results.
+            </p>
+          </section>
 
           <Footer />
         </main>
