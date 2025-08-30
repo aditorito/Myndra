@@ -21,8 +21,8 @@ export default function WhatWeDo() {
       className="h-8 w-40 inline-flex items-center"
     >
       <RImg
-        path="assets/images/myndralogotypebt_1.png"
-        mobPath="assets/images/myndralogotypebt_1.png"
+        path="/images/myndralogotypebt_1.png"
+        mobPath="/images/myndralogotypebt_1.png"
         alt="Myndra"
         imgProps={{ className: "h-full w-full object-contain" }}
       />
@@ -62,7 +62,7 @@ export default function WhatWeDo() {
       aria-label="Open menu"
     >
       <RImg
-        path="assets/images/hamburger.svg"
+        path="/images/hamburger.svg"
         alt="menu"
         imgProps={{ className: "h-5 w-5" }}
       />
@@ -106,7 +106,7 @@ export default function WhatWeDo() {
 <section className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
   <article>
     <RImg
-      path="assets/images/group_48.svg"
+      path="/images/group_48.svg"
       alt="Cutting edge AI"
       imgProps={{ className: "h-14 w-14 mx-auto" }}
     />
@@ -120,7 +120,7 @@ export default function WhatWeDo() {
   
   <article>
     <RImg
-      path="assets/images/group_52.svg"
+      path="/images/group_52.svg"
       alt="No location boundaries"
       imgProps={{ className: "h-14 w-14 mx-auto" }}
     />
@@ -148,7 +148,7 @@ export default function WhatWeDo() {
   
   <article className="sm:col-span-2 lg:col-start-1 lg:col-end-3 lg:row-start-2">
     <RImg
-      path="assets/images/group_53.svg"
+      path="/images/group_53.svg"
       alt="Round-the-clock expert guidance"
       imgProps={{ className: "h-14 w-14 mx-auto" }}
     />
