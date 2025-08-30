@@ -34,7 +34,7 @@ export default function LogIn() {
                  className="h-8 w-40 inline-flex items-center"
                >
                  <RImg
-                   path="../assets/images/myndralogotypebt_1.png"
+                   path="/assets/images/myndralogotypebt_1.png"
                    mobPath="assets/images/myndralogotypebt_1.png"
                    alt="Myndra"
                    imgProps={{ className: "h-full w-full object-contain" }}
