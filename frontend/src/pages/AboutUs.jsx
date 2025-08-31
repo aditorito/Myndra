@@ -11,73 +11,96 @@ export default function AboutUs() {
   return (
     <div className="min-h-screen w-full bg-white text-[#2F2F2F]">
       <Menu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      {/* Header */}
+      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
+        <div className="mx-auto max-w-[1200px] px-4 h-16 flex items-center justify-between">
+          {/* Logo - Responsive sizing */}
+          <button
+            onClick={() => navigate("/")}
+            aria-label="Myndra"
+            className="h-8 w-32 sm:w-36 md:w-40 inline-flex items-center flex-shrink-0"
+          >
+            <RImg
+              path="/images/myndralogotypebt_1.png"
+              mobPath="/images/myndralogotypebt_1.png"
+              alt="Myndra"
+              imgProps={{ className: "h-full w-full object-contain" }}
+            />
+          </button>
 
-<header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
-  <div className="mx-auto max-w-[1200px] px-4 h-16 flex items-center justify-between">
-    <button
-      onClick={() => navigate("/")}
-      aria-label="Myndra"
-      className="h-8 w-40 inline-flex items-center"
-    >
-      <RImg
-        path="/images/myndralogotypebt_1.png"
-        mobPath="/images/myndralogotypebt_1.png"
-        alt="Myndra"
-        imgProps={{ className: "h-full w-full object-contain" }}
-      />
-    </button>
-    
-    <div className="hidden lg:flex items-center gap-8 text-lg">
-      <nav className="flex items-center gap-8">
-        <button onClick={() => navigate("/")} className="hover:opacity-70">
-          Home
-        </button>
-        <button
-          onClick={() => navigate("/AboutUs")}
-          className="hover:opacity-70"
-        >
-          About Us
-        </button>
-                      <button
-                onClick={() => navigate("/WhatWeDo")} // ✅ correct route
-                className="opacity-80 hover:opacity-100"
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8 text-lg">
+            <nav className="flex items-center gap-6 xl:gap-8">
+              <button
+                onClick={() => navigate("/")}
+                className="hover:opacity-70 transition-opacity"
+              >
+                Home
+              </button>
+              <button
+                onClick={() => navigate("/AboutUs")}
+                className="hover:opacity-70 transition-opacity"
+              >
+                About Us
+              </button>
+              <button
+                onClick={() => navigate("/WhatWeDo")}
+                className="opacity-80 hover:opacity-100 transition-opacity"
               >
                 What We Do
               </button>
-        <button
-          onClick={() => navigate("/Careers")}
-          className="hover:opacity-70"
-        >
-          Careers
-        </button>
-      </nav>
-      
-      <button
-        onClick={() => navigate("/LogIn")}
-        className="border border-black text-black px-5 py-1.5 rounded-xl hover:bg-black hover:text-white transition-colors"
-      >
-        Log in
-      </button>
-    </div>
+              <button
+                onClick={() => navigate("/Careers")}
+                className="hover:opacity-70 transition-opacity"
+              >
+                Careers
+              </button>
+            </nav>
 
-    <button
-      onClick={() => setMenuOpen(true)}
-      className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border"
-      aria-label="Open menu"
-    >
-      <RImg
-        path="/images/hamburger.svg"
-        alt="menu"
-        imgProps={{ className: "h-5 w-5" }}
-      />
-    </button>
-  </div>
-</header>
+            <button
+              onClick={() => navigate("/LogIn")}
+              className="border border-black text-black px-4 xl:px-5 py-1.5 rounded-xl hover:bg-black hover:text-white transition-colors whitespace-nowrap"
+            >
+              Log in
+            </button>
+          </div>
+
+          {/* Mobile Hamburger - Fixed visibility */}
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-gray-300 hover:border-gray-400 transition-colors flex-shrink-0 min-w-[2.5rem]"
+            aria-label="Open menu"
+          >
+            <RImg
+              path="assets/images/hamburger.svg"
+              alt="menu"
+              imgProps={{
+                className: "h-5 w-5",
+                onError: (e) => {
+                  // Fallback if image fails to load
+                  e.target.style.display = 'none';
+                  const parent = e.target.parentElement;
+                  if (parent && !parent.querySelector('.hamburger-fallback')) {
+                    const fallback = document.createElement('div');
+                    fallback.className = 'hamburger-fallback flex flex-col justify-center items-center h-5 w-5';
+                    fallback.innerHTML = `
+                      <span class="block h-0.5 w-4 bg-gray-600 mb-1"></span>
+                      <span class="block h-0.5 w-4 bg-gray-600 mb-1"></span>
+                      <span class="block h-0.5 w-4 bg-gray-600"></span>
+                    `;
+                    parent.appendChild(fallback);
+                  }
+                }
+              }}
+            />
+          </button>
+        </div>
+      </header>
 
       <div className="relative">
         <div className="absolute inset-0 flex justify-center mt-10 pointer-events-none select-none opacity-40" aria-hidden="true">
           <span className="bg-[linear-gradient(152deg,#FFC107_0%,#075056_65%,#055258_99%)] bg-clip-text text-transparent font-extrabold lowercase font-mont"
-                style={{ fontSize: "clamp(4rem, 18vw, 12.5rem)" }}>
+            style={{ fontSize: "clamp(4rem, 18vw, 12.5rem)" }}>
             myndra
           </span>
         </div>
@@ -88,8 +111,8 @@ export default function AboutUs() {
           <section className="mt-8">
             <p className="mx-auto max-w-3xl pt-14 text-center text-[clamp(1rem,2.6vw,1.7rem)] leading-relaxed font-playfair">
               <div className="font-bold">
-              We’re building Myndra from the ground up, driven by impact and purpose. Every team member plays a key role in shaping the future
-              of education in <span className="text-[rgba(255,91,4,1)]">Bharat</span>.</div> 
+                We’re building Myndra from the ground up, driven by impact and purpose. Every team member plays a key role in shaping the future
+                of education in <span className="text-[rgba(255,91,4,1)]">Bharat</span>.</div>
               <br /><br />
               <span className="text-[#075056]">Myndra: an AI-powered platform redefining learning and growth for all.</span>
               <br /><br />
@@ -107,7 +130,7 @@ export default function AboutUs() {
           </div>
 
           <h2 className="mt-16 text-center font-extrabold leading-snug font-playfair"
-              style={{ fontSize: "clamp(1.1rem,3.2vw,2rem)" }}>
+            style={{ fontSize: "clamp(1.1rem,3.2vw,2rem)" }}>
             <span className="bg-[linear-gradient(90deg,#055258_0%,#FFDE81_100%)] bg-clip-text text-transparent">
               Your journey matters and with Myndra, <br className="hidden sm:block" /> there are no limits.
             </span>
@@ -115,7 +138,7 @@ export default function AboutUs() {
         </main>
       </div>
 
-    <Footer />
+      <Footer />
     </div>
   );
 }

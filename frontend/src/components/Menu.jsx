@@ -6,8 +6,10 @@ export default function Menu({ open = false, onClose }) {
   const panelRef = useRef(null);
   const lg = 1024;
   const query = useMemo(() => `(max-width:${lg - 1}px)`, [lg]);
+  
   const getIsMobile = () =>
     typeof window !== "undefined" && window.matchMedia(query).matches;
+  
   const [isMobile, setIsMobile] = useState(getIsMobile);
 
   useEffect(() => {
@@ -22,7 +24,11 @@ export default function Menu({ open = false, onClose }) {
   }, [query]);
 
   const close = () => onClose?.();
-  const go = (to) => { navigate(to); close(); };
+  
+  const go = (to) => { 
+    navigate(to); 
+    close(); 
+  };
 
   useEffect(() => {
     if (!open || !isMobile) return;
@@ -35,34 +41,78 @@ export default function Menu({ open = false, onClose }) {
     if (!open || !isMobile) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = prev; };
+    return () => { 
+      document.body.style.overflow = prev; 
+    };
   }, [open, isMobile]);
 
-  useEffect(() => { if (open && isMobile) panelRef.current?.focus(); }, [open, isMobile]);
+  useEffect(() => { 
+    if (open && isMobile) panelRef.current?.focus(); 
+  }, [open, isMobile]);
 
   if (!open || !isMobile) return null;
 
   return (
     <div
-      className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/40"
-      role="dialog" aria-modal="true" aria-label="Mobile navigation"
+      className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/40 p-4"
+      role="dialog" 
+      aria-modal="true" 
+      aria-label="Mobile navigation"
       onClick={close}
     >
       <div
-        ref={panelRef} tabIndex={-1} onClick={(e) => e.stopPropagation()}
+        ref={panelRef} 
+        tabIndex={-1} 
+        onClick={(e) => e.stopPropagation()}
         className="relative bg-[rgba(7,80,86,1.00)] text-white shadow-[2.5rem_4.6875rem_6.25rem_0_rgba(0,0,0,0.20)]
-                   h-[calc(19.875rem-1.5rem)] w-[calc(20.1875rem-1.5rem)] rounded-[0.625rem] p-3 flex flex-col gap-1.5"
+                   w-full max-w-xs min-h-fit rounded-[0.625rem] p-4 flex flex-col gap-2 mx-4"
       >
-        <button onClick={() => go("/")} className="p-4 rounded-lg w-full text-lg font-bold font-[Inter] hover:bg-white/10">Home</button>
-        <button onClick={() => go("/WhatWeDo")} className="p-4 rounded-lg w-full text-lg font-bold font-[Inter] hover:bg-white/10">What We Do</button>
-        <button onClick={() => go("/AboutUs")} className="p-4 rounded-lg w-full text-lg font-bold font-[Inter] hover:bg-white/10">About Us</button>
-        <button onClick={() => go("/Careers")} className="p-4 rounded-lg w-full text-lg font-bold font-[Inter] hover:bg-white/10">Careers</button>
-        <button onClick={() => go("/LogIn")} className="p-4 rounded-lg w-full text-lg font-bold font-[Inter] hover:bg-white/10">Log in</button>
-
-        <button onClick={close} aria-label="Close menu"
-          className="absolute right-0 -top-12 h-12 w-12 bg-white/40 rounded-lg grid place-items-center hover:bg-white/60">
+        {/* Close button */}
+        <button 
+          onClick={close} 
+          aria-label="Close menu"
+          className="absolute right-2 top-2 h-8 w-8 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors text-white text-lg font-bold"
+        >
           ✕
         </button>
+
+        {/* Menu Items */}
+        <div className="pt-8 flex flex-col gap-1">
+          <button 
+            onClick={() => go("/")} 
+            className="p-3 rounded-lg w-full text-left text-lg font-bold font-[Inter] hover:bg-white/10 transition-colors"
+          >
+            Home
+          </button>
+          
+          <button 
+            onClick={() => go("/WhatWeDo")} 
+            className="p-3 rounded-lg w-full text-left text-lg font-bold font-[Inter] hover:bg-white/10 transition-colors"
+          >
+            What We Do
+          </button>
+          
+          <button 
+            onClick={() => go("/AboutUs")} 
+            className="p-3 rounded-lg w-full text-left text-lg font-bold font-[Inter] hover:bg-white/10 transition-colors"
+          >
+            About Us
+          </button>
+          
+          <button 
+            onClick={() => go("/Careers")} 
+            className="p-3 rounded-lg w-full text-left text-lg font-bold font-[Inter] hover:bg-white/10 transition-colors"
+          >
+            Careers
+          </button>
+          
+          <button 
+            onClick={() => go("/LogIn")} 
+            className="p-3 rounded-lg w-full text-left text-lg font-bold font-[Inter] hover:bg-white/10 transition-colors mt-2 border-t border-white/20 pt-4"
+          >
+            Log in
+          </button>
+        </div>
       </div>
     </div>
   );

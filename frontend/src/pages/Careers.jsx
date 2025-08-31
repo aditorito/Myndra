@@ -11,13 +11,14 @@ export default function Careers() {
   return (
     <div className="min-h-screen w-full bg-white text-[#2F2F2F]">
       <Menu open={menuOpen} onClose={() => setMenuOpen(false)} />
-
+      {/* Header */}
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
         <div className="mx-auto max-w-[1200px] px-4 h-16 flex items-center justify-between">
+          {/* Logo - Responsive sizing */}
           <button
             onClick={() => navigate("/")}
             aria-label="Myndra"
-            className="h-8 w-40 inline-flex items-center"
+            className="h-8 w-32 sm:w-36 md:w-40 inline-flex items-center flex-shrink-0"
           >
             <RImg
               path="/images/myndralogotypebt_1.png"
@@ -27,26 +28,30 @@ export default function Careers() {
             />
           </button>
 
-          <div className="hidden lg:flex items-center gap-8 text-lg">
-            <nav className="flex items-center gap-8">
-              <button onClick={() => navigate("/")} className="hover:opacity-70">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8 text-lg">
+            <nav className="flex items-center gap-6 xl:gap-8">
+              <button
+                onClick={() => navigate("/")}
+                className="hover:opacity-70 transition-opacity"
+              >
                 Home
               </button>
               <button
                 onClick={() => navigate("/AboutUs")}
-                className="hover:opacity-70"
+                className="hover:opacity-70 transition-opacity"
               >
                 About Us
               </button>
               <button
-                onClick={() => navigate("/WhatWeDo")} // ✅ correct route
-                className="opacity-80 hover:opacity-100"
+                onClick={() => navigate("/WhatWeDo")}
+                className="opacity-80 hover:opacity-100 transition-opacity"
               >
                 What We Do
               </button>
               <button
                 onClick={() => navigate("/Careers")}
-                className="hover:opacity-70"
+                className="hover:opacity-70 transition-opacity"
               >
                 Careers
               </button>
@@ -54,21 +59,39 @@ export default function Careers() {
 
             <button
               onClick={() => navigate("/LogIn")}
-              className="border border-black text-black px-5 py-1.5 rounded-xl hover:bg-black hover:text-white transition-colors"
+              className="border border-black text-black px-4 xl:px-5 py-1.5 rounded-xl hover:bg-black hover:text-white transition-colors whitespace-nowrap"
             >
               Log in
             </button>
           </div>
 
+          {/* Mobile Hamburger - Fixed visibility */}
           <button
             onClick={() => setMenuOpen(true)}
-            className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border"
+            className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-gray-300 hover:border-gray-400 transition-colors flex-shrink-0 min-w-[2.5rem]"
             aria-label="Open menu"
           >
             <RImg
-              path="/images/hamburger.svg"
+              path="assets/images/hamburger.svg"
               alt="menu"
-              imgProps={{ className: "h-5 w-5" }}
+              imgProps={{
+                className: "h-5 w-5",
+                onError: (e) => {
+                  // Fallback if image fails to load
+                  e.target.style.display = 'none';
+                  const parent = e.target.parentElement;
+                  if (parent && !parent.querySelector('.hamburger-fallback')) {
+                    const fallback = document.createElement('div');
+                    fallback.className = 'hamburger-fallback flex flex-col justify-center items-center h-5 w-5';
+                    fallback.innerHTML = `
+                      <span class="block h-0.5 w-4 bg-gray-600 mb-1"></span>
+                      <span class="block h-0.5 w-4 bg-gray-600 mb-1"></span>
+                      <span class="block h-0.5 w-4 bg-gray-600"></span>
+                    `;
+                    parent.appendChild(fallback);
+                  }
+                }
+              }}
             />
           </button>
         </div>

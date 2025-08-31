@@ -16,12 +16,13 @@ export default function Home() {
         <Menu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
         {/* Header */}
-        <header className="relative top-0 bg-[#075056] opacity-70 text-white z-40 ">
-          <div className="mx-auto w-full px-4 h-16 flex   items-center justify-between">
+        <header className="relative top-0 bg-[#075056] opacity-70 text-white z-40">
+          <div className="mx-auto w-full px-4 h-16 flex items-center justify-between">
+            {/* Logo */}
             <button
               onClick={() => navigate("/")}
               aria-label="Myndra"
-              className="h-8 w-44 inline-flex items-center"
+              className="h-8 w-32 sm:w-36 md:w-44 inline-flex items-center flex-shrink-0"
             >
               <img
                 src="/images/myndralogotypebt_1.png"
@@ -30,47 +31,84 @@ export default function Home() {
               />
             </button>
 
-            <nav className="hidden lg:flex items-center gap-10 text-[1.08rem]">
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-10 text-[1.08rem]">
               <span className="font-semibold">Home</span>
               <button
                 onClick={() => navigate("/AboutUs")}
-                className="opacity-80 hover:opacity-100"
+                className="opacity-80 hover:opacity-100 transition-opacity"
               >
                 About Us
               </button>
               <button
-                onClick={() => navigate("/WhatWeDo")} // ✅ correct route
-                className="opacity-80 hover:opacity-100"
+                onClick={() => navigate("/WhatWeDo")}
+                className="opacity-80 hover:opacity-100 transition-opacity"
               >
                 What We Do
               </button>
               <button
                 onClick={() => navigate("/Careers")}
-                className="opacity-80 hover:opacity-100"
+                className="opacity-80 hover:opacity-100 transition-opacity"
               >
                 Careers
               </button>
-              <div className="hidden lg:block">
-                <button
-                  onClick={() => navigate("/LogIn")}
-                  className="border border-white  text-white px-5 py-1.5 rounded-xl"
-                >
-                  Log in
-                </button>
-              </div>
+              <button
+                onClick={() => navigate("/LogIn")}
+                className="border border-white text-white px-4 xl:px-5 py-1.5 rounded-xl hover:bg-white hover:text-[#075056] transition-colors"
+              >
+                Log in
+              </button>
             </nav>
 
-
-
-            {/* Mobile hamburger */}
+            {/* Mobile hamburger - Fixed visibility */}
             <button
               onClick={() => setMenuOpen(true)}
-              className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border"
+              className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-white/30 hover:border-white/60 transition-colors flex-shrink-0"
               aria-label="Open menu"
             >
-              <img src="/images/hamburger.svg" alt="menu" className="h-5 w-5" />
+              {/* Fallback hamburger icon if image doesn't load */}
+              <img
+                src="/images/hamburger.svg"
+                alt="menu"
+                className="h-5 w-5 brightness-0 invert"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'block';
+                }}
+              />
+              {/* CSS hamburger fallback */}
+              <div className="hidden flex-col justify-center items-center">
+                <span className="block h-0.5 w-5 bg-white mb-1"></span>
+                <span className="block h-0.5 w-5 bg-white mb-1"></span>
+                <span className="block h-0.5 w-5 bg-white"></span>
+              </div>
             </button>
           </div>
+
+          {/* Mobile Menu Overlay (add this if you don't have it) */}
+          {menuOpen && (
+            <div className="lg:hidden fixed inset-0 bg-[#075056] z-50">
+              <div className="flex flex-col h-full">
+                {/* Mobile Header */}
+                <div className="flex items-center justify-between px-4 h-16 border-b border-white/20">
+                  <img
+                    src="/images/myndralogotypebt_1.png"
+                    alt="Myndra"
+                    className="h-8 w-32 brightness-0 invert object-contain"
+                  />
+                  <button
+                    onClick={() => setMenuOpen(false)}
+                    className="inline-flex items-center justify-center h-10 w-10 rounded-lg border border-white/30"
+                    aria-label="Close menu"
+                  >
+                    <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </header>
 
         {/* ================= HERO ================= */}
