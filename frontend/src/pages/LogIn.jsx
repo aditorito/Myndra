@@ -212,7 +212,7 @@ export default function LogIn() {
                 <button
                   onClick={async () => {
                     try {
-                      const response = await axios.post(`${backendUrl}/waitinglist`, {
+                      const response = await axios.post(`${backendUrl}/users/waitinglist`, {
                         email: email,
                         phoneNo: phoneNo,
                         password: password

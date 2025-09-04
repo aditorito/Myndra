@@ -70,7 +70,7 @@ const OTPVerification = () => {
     setError('');
 
     try {
-      const response = await axios.post(`${backendUrl}/waitinglist/verify`, {
+      const response = await axios.post(`${backendUrl}/users/waitinglist/verify`, {
         email,
         otpCode: otpValue
       });
