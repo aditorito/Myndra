@@ -211,23 +211,35 @@ export default function LogIn() {
                 {/* Sign In Button */}
                 <button
                   onClick={async () => {
-                    const response = await axios.post(`${backendUrl}/users/waitinglist`, {
-                      email: email,
-                      phoneNo: phoneNo,
-                      password: password
-                    });
+                    try {
+                      const response = await axios.post(`${backendUrl}/waitinglist`, {
+                        email: email,
+                        phoneNo: phoneNo,
+                        password: password
+                      });
 
-                    if (response.data.status === 'success') {
-                      alert("Added to waiting list successfully");
-                      // Reset form fields
-                      setEmail('');
-                      setPhoneNo('');
-                      setPassword('');
-                      navigate("/otp");
-                    } else {
-                      alert("Failed to add to waiting list");
+                      if (response.data.status === 'pending') {
+                        // Save email for OTP verification step
+                        localStorage.setItem("pendingEmail", email);
+
+                        alert("OTP sent successfully. Please check your email.");
+
+                        // Reset form fields
+                        setEmail('');
+                        setPhoneNo('');
+                        setPassword('');
+
+                        // Navigate to OTP page
+                        navigate("/otp");
+                      } else {
+                        alert("Failed to send OTP");
+                      }
+                    } catch (error) {
+                      console.error(error);
+                      alert("Something went wrong while adding to waiting list");
                     }
                   }}
+
                   className="h-10 sm:h-12 rounded-lg bg-orange-500 hover:bg-orange-600 text-white font-semibold transition-colors shadow-lg text-sm sm:text-base font-sans w-full"
                 >
                   Sign In
