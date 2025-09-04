@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const CORS = require('cors');
 const connectWithMongoDB = require('./config.js/db');
-const rootRouter = require('./routes/index');
+const rootRouter = require('./routes/index.js');
 
 dotenv.config();
 
