@@ -179,8 +179,8 @@ export default function Home() {
             Join Waitlist
           </button>
         </div>
-        {/* ============ WHY MYNDRA — 3 PILLARS (ASYMMETRIC) ============ */}
-        <section className="w-full max-w-[1450px] mx-auto px-2 py-14 md:px-6 relative min-h-[520px]">
+        {/* ============ WHY MYNDRA — 3 PILLARS (RESPONSIVE) ============ */}
+        <section className="w-full max-w-[1450px] mx-auto px-2 py-14 md:px-6 relative">
           {/* Heading */}
           <div className="mb-3">
             <span
@@ -198,143 +198,150 @@ export default function Home() {
               Our 3 Pillars
             </h2>
           </div>
-          {/* Decorative cluster inside Why Myndra */}
-          <div className="hidden lg:block pointer-events-none select-none">
+
+          {/* Decorative cluster inside Why Myndra - only for larger screens */}
+          <div className="hidden xl:block pointer-events-none select-none">
             <img
               src="/images/star.svg"
               alt=""
-              className="absolute right-10 top-10  h-96 rotate-[10deg] opacity-90"
+              className="absolute right-10 top-10 h-96 rotate-[10deg] opacity-90"
             />
             <img
               src="/images/star_2.svg"
               alt=""
-              className="absolute right-96 top-84 h-28  -rotate-[20deg] opacity-90"
+              className="absolute right-96 top-84 h-28 -rotate-[20deg] opacity-90"
             />
             <img
               src="/images/vector_5.svg"
               alt=""
-              className="absolute left-0 top-[-20px]  "
+              className="absolute left-0 top-[-20px]"
             />
             <div className="absolute left-0 top-64 h-[162px] w-[154px] rounded-full bg-[#FFDE81]" />
             <div className="absolute right-10 bottom-[20%] h-[86px] w-[84px] rounded-full bg-[#BF4200]" />
             <div className="absolute left-[60%] top-[38%] h-[86px] w-[84px] rounded-full bg-[#075056]" />
           </div>
 
-
-          {/* Decorative overlapping stars */}
-          {/* <div>
-          <img
-            src="/assets/images/star.svg"
-            alt=""
-            className="hidden md:block absolute right-14 top-[-36px] h-40 z-10 opacity-90"
-          />
-          <img
-            src="/assets/images/star_2.svg"
-            alt=""
-            className="hidden md:block absolute right-60 top-28 h-24 z-10 opacity-90"
-          />
-        </div> */}
-
-          {/* 3 Pillars — desktop asymmetric layout */}
-          <div className="hidden md:block relative mb-52 min-h-[340px] mt-6">
-            {/* CARD 1 */}
-            <article className="absolute left-0 top-10  bg-[#FEF6E3] rounded-3xl p-6 shadow-sm z-20">
-              <div className="flex items-center gap-3">
-                <div
-                  className="text-[2rem] italic font-black"
-                  style={{ fontFamily: "Playfair Display" }}
-                >
-                  01
+          {/* 3 Pillars — responsive layout using CSS Grid for tablet and desktop */}
+          <div className="hidden md:block mt-6">
+            {/* Container with responsive grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
+              
+              {/* CARD 1 - Takes full width on tablet, positioned left on desktop */}
+              <article className="lg:col-start-1 lg:col-end-5 lg:row-start-1 bg-[#FEF6E3] rounded-3xl p-6 shadow-sm z-20">
+                <div className="flex items-center gap-3">
+                  <div
+                    className="text-[2rem] italic font-black"
+                    style={{ fontFamily: "Playfair Display" }}
+                  >
+                    01
+                  </div>
+                  <div
+                    className="text-base font-bold uppercase"
+                    style={{ fontFamily: "Work Sans" }}
+                  >
+                    MYNDRA PREP
+                  </div>
                 </div>
-                <div
-                  className="text-base font-bold uppercase"
-                  style={{ fontFamily: "Work Sans" }}
+                <ul
+                  className="mt-4 space-y-2 text-[1rem] leading-snug"
+                  style={{ fontFamily: "Poppins" }}
                 >
-                  MYNDRA PREP
+                  <li>• AI-powered exam prep with custom study plans.</li>
+                  <li>• Targets your strengths and weaknesses.</li>
+                  <li>• Gamified goals and instant feedback.</li>
+                  <li>• Real-time progress tracking keeps you on track.</li>
+                </ul>
+              </article>
+
+              {/* CARD 2 - Positioned center on desktop, second on tablet */}
+              <article className="lg:col-start-6 lg:col-end-10 xl:col-start-5 xl:col-end-9 lg:row-start-2 lg:mt-8 bg-[#FEF6E3] rounded-3xl p-6 shadow-sm z-20">
+                <div className="flex items-center gap-3">
+                  <div
+                    className="text-[2rem] italic font-black"
+                    style={{ fontFamily: "Playfair Display" }}
+                  >
+                    02
+                  </div>
+                  <div
+                    className="text-base font-bold uppercase"
+                    style={{ fontFamily: "Work Sans" }}
+                  >
+                    MYNDRA TUTOR
+                  </div>
+                </div>
+                <ul
+                  className="mt-4 space-y-2 text-[1rem] leading-snug"
+                  style={{ fontFamily: "Poppins" }}
+                >
+                  <li>• Your 24/7 AI teacher ready to help anytime.</li>
+                  <li>• Clears doubts, explains concepts step-by-step.</li>
+                  <li>• Based on syllabus, past papers, and trusted books.</li>
+                  <li>• Expert guidance whenever you need it.</li>
+                </ul>
+              </article>
+
+              {/* CARD 3 - Positioned right on desktop, third on tablet */}
+              <article className="lg:col-start-9 lg:col-end-13 lg:row-start-3 lg:mt-16 bg-[#FEF6E3] rounded-3xl p-6 shadow-sm z-20">
+                <div className="flex items-center gap-3">
+                  <div
+                    className="text-[2rem] italic font-black"
+                    style={{ fontFamily: "Playfair Display" }}
+                  >
+                    03
+                  </div>
+                  <div
+                    className="text-base font-bold uppercase"
+                    style={{ fontFamily: "Work Sans" }}
+                  >
+                    MYNDRA COUNSELOR
+                  </div>
+                </div>
+                <ul
+                  className="mt-4 space-y-2 text-[1rem] leading-snug"
+                  style={{ fontFamily: "Poppins" }}
+                >
+                  <li>• AI-driven college and career advisor.</li>
+                  <li>• Finds the right colleges & opportunities.</li>
+                  <li>• Supports essays and manages deadlines.</li>
+                  <li>• Premium mentoring for free or minimal cost.</li>
+                </ul>
+              </article>
+
+              {/* Copy block - positioned on left for desktop with blue left border */}
+              <div className="lg:col-start-1 lg:col-end-6 lg:row-start-2 lg:row-end-4 lg:mt-24 relative">
+                {/* Blue left border */}
+                <div className="absolute left-0 top-0 w-1 h-32 bg-[#075056]"></div>
+                
+                <div className="pl-8">
+                  <h3
+                    className="text-[1.6rem] lg:text-[1.8rem] xl:text-[2rem] font-bold leading-tight mb-2"
+                    style={{ fontFamily: "Playfair Display" }}
+                  >
+                    Today's learners are <br />overwhelmed.
+                  </h3>
+                  <h3
+                    className="text-[1.6rem] lg:text-[1.8rem] xl:text-[2rem] font-bold leading-tight mb-8 text-[#075056]"
+                    style={{ fontFamily: "Playfair Display" }}
+                  >
+                    We bring back meaning.
+                  </h3>
+                  <p
+                    className="text-[1.1rem] lg:text-[1.2rem] leading-relaxed text-[#2F2F2F] max-w-lg"
+                    style={{ fontFamily: "Playfair Display" }}
+                  >
+                    We blend timeless storytelling with adaptive AI to craft a learning
+                    experience that's intuitive, supportive, and deeply human.
+                  </p>
+                </div>
+
+                {/* Orange triangle decoration - positioned at bottom right */}
+                <div className="absolute bottom-4 right-12">
+                  <div 
+                    className="w-0 h-0 border-l-[24px] border-l-transparent border-r-[24px] border-r-transparent border-b-[24px] border-b-[#FF8C42]"
+                    style={{ transform: 'rotate(15deg)' }}
+                  ></div>
                 </div>
               </div>
-              <ul
-                className="mt-4 space-y-2 text-[1rem] leading-snug"
-                style={{ fontFamily: "Poppins" }}
-              >
-                <li>• AI-powered exam prep with custom study plans.</li>
-                <li>• Targets your strengths and weaknesses.</li>
-                <li>• Gamified goals and instant feedback.</li>
-                <li>• Real-time progress tracking keeps you on track.</li>
-              </ul>
-            </article>
-
-            {/* CARD 2 */}
-            <article className="absolute left-[480px] top-[125px]  bg-[#FEF6E3] rounded-3xl p-6 shadow-sm z-20">
-              <div className="flex items-center gap-3">
-                <div
-                  className="text-[2rem] italic font-black"
-                  style={{ fontFamily: "Playfair Display" }}
-                >
-                  02
-                </div>
-                <div
-                  className="text-base font-bold uppercase"
-                  style={{ fontFamily: "Work Sans" }}
-                >
-                  MYNDRA TUTOR
-                </div>
-              </div>
-              <ul
-                className="mt-4 space-y-2 text-[1rem] leading-snug"
-                style={{ fontFamily: "Poppins" }}
-              >
-                <li>• Your 24/7 AI teacher ready to help anytime.</li>
-                <li>• Clears doubts, explains concepts step-by-step.</li>
-                <li>• Based on syllabus, past papers, and trusted books.</li>
-                <li>• Expert guidance whenever you need it.</li>
-              </ul>
-            </article>
-
-            {/* CARD 3 */}
-            <article className="absolute right-0 top-[200px]  bg-[#FEF6E3] rounded-3xl p-6 shadow-sm z-20">
-              <div className="flex items-center gap-3">
-                <div
-                  className="text-[2rem] italic font-black"
-                  style={{ fontFamily: "Playfair Display" }}
-                >
-                  03
-                </div>
-                <div
-                  className="text-base font-bold uppercase"
-                  style={{ fontFamily: "Work Sans" }}
-                >
-                  MYNDRA COUNSELOR
-                </div>
-              </div>
-              <ul
-                className="mt-4 space-y-2 text-[1rem] leading-snug"
-                style={{ fontFamily: "Poppins" }}
-              >
-                <li>• AI-driven college and career advisor.</li>
-                <li>• Finds the right colleges & opportunities.</li>
-                <li>• Supports essays and manages deadlines.</li>
-                <li>• Premium mentoring for free or minimal cost.</li>
-              </ul>
-            </article>
-
-            {/* Copy block */}
-            <div className="absolute left-3  mt-2 top-[245px]  w-[360px]">
-              <h3
-                className="text-[1.22rem] font-bold  leading-snug mb-2"
-                style={{ fontFamily: "Playfair Display" }}
-              >
-                Today’s learners are <br />overwhelmed.
-                <br />
-                <span className="text-[#075056] font-bold">We bring back meaning.</span>
-              </h3>
-              <p
-                className="mt-5 text-[1rem] leading-7"
-                style={{ fontFamily: "Playfair Display" }}
-              >
-                We blend timeless storytelling with adaptive AI to craft a learning
-                experience that’s intuitive, supportive, and deeply human.
-              </p>
             </div>
           </div>
 
@@ -414,7 +421,7 @@ export default function Home() {
                 className="text-[1.1rem] font-normal leading-snug mb-2"
                 style={{ fontFamily: "Playfair Display" }}
               >
-                Today’s learners are overwhelmed.
+                Today's learners are overwhelmed.
                 <br />
                 <span className="text-[#075056] font-bold">We bring back meaning.</span>
               </h3>
@@ -423,13 +430,12 @@ export default function Home() {
                 style={{ fontFamily: "Playfair Display" }}
               >
                 We blend timeless storytelling with adaptive AI to craft a learning
-                experience that’s intuitive, supportive, and deeply human.
+                experience that's intuitive, supportive, and deeply human.
               </p>
             </div>
           </div>
         </section>
       </div>
-
 
       {/* ✅ Shared responsive footer */}
       <Footer />

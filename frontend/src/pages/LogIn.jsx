@@ -249,26 +249,30 @@ export default function LogIn() {
                 <div className="text-center text-sm text-white/70 font-sans">
                   or continue with
                 </div>
-
                 <div className="grid grid-cols-2 gap-3">
                   {/* Google */}
                   <button
                     type="button"
-                    className="h-10 sm:h-12 rounded-lg bg-white hover:bg-gray-100 flex items-center justify-center transition-colors shadow-md"
+                    className="h-10 sm:h-12 rounded-lg bg-white hover:bg-gray-100 flex items-center justify-center transition-colors shadow-md border border-gray-200"
                   >
-                    <div className="h-5 w-5 sm:h-6 sm:w-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
-                      G
-                    </div>
+                    <img
+                      src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.0.0/google.svg"
+                      alt="Google"
+                      className="h-5 w-5 sm:h-6 sm:w-6"
+                      style={{ filter: 'none' }}
+                    />
                   </button>
 
                   {/* GitHub */}
                   <button
                     type="button"
-                    className="h-10 sm:h-12 rounded-lg bg-white hover:bg-gray-100 flex items-center justify-center transition-colors shadow-md"
+                    className="h-10 sm:h-12 rounded-lg bg-white hover:bg-gray-100 flex items-center justify-center transition-colors shadow-md border border-gray-200"
                   >
-                    <div className="h-5 w-5 sm:h-6 sm:w-6 bg-black rounded-full flex items-center justify-center text-white text-xs font-bold">
-                      GH
-                    </div>
+                    <img
+                      src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.0.0/github.svg"
+                      alt="GitHub"
+                      className="h-5 w-5 sm:h-6 sm:w-6"
+                    />
                   </button>
                 </div>
 
