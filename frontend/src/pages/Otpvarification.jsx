@@ -1,8 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const OTPVerification = () => {
+  const navigate = useNavigate();
   const [otp, setOtp] = useState(['', '', '', '', '', '']); // 6 digits
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -70,7 +73,7 @@ const OTPVerification = () => {
     setError('');
 
     try {
-      const response = await axios.post(`${backendUrl}/users/waitinglist/verify`, {
+      const response = await axios.post(`${backendUrl}/waitinglist/verify`, {
         email,
         otpCode: otpValue
       });
@@ -78,6 +81,9 @@ const OTPVerification = () => {
       if (response.data.status === "success") {
         setSuccess(true);
         localStorage.removeItem("pendingEmail");
+        localStorage.setItem("token", response.data.token);
+        navigate("/otp");
+
       } else {
         setError(response.data.message || 'Invalid OTP. Please try again.');
       }
@@ -112,7 +118,7 @@ const OTPVerification = () => {
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Verification Successful!</h2>
           <p className="text-gray-600 mb-6">Your OTP has been verified successfully.</p>
           <button
-            onClick={() => window.location.href = "/"}
+            onClick={() => window.location.href = "/profile"}
             className="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
           >
             Continue
@@ -143,11 +149,10 @@ const OTPVerification = () => {
                 onChange={(e) => handleChange(index, e.target.value)}
                 onKeyDown={(e) => handleKeyDown(index, e)}
                 onPaste={handlePaste}
-                className={`w-12 h-12 text-center text-lg font-bold border-2 rounded-lg transition-colors ${
-                  error
+                className={`w-12 h-12 text-center text-lg font-bold border-2 rounded-lg transition-colors ${error
                     ? 'border-red-300 focus:border-red-500'
                     : 'border-gray-300 focus:border-indigo-500'
-                } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-20`}
+                  } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-20`}
                 disabled={isLoading}
               />
             ))}

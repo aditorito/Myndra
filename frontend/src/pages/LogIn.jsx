@@ -212,12 +212,12 @@ export default function LogIn() {
                 <button
                   onClick={async () => {
                     try {
-                      const response = await axios.post(`${backendUrl}/users/waitinglist`, {
+                      const response = await axios.post(`${backendUrl}/waitinglist`, {
                         email: email,
                         phoneNo: phoneNo,
                         password: password
                       });
-
+                      console.log(response);
                       if (response.data.status === 'pending') {
                         // Save email for OTP verification step
                         localStorage.setItem("pendingEmail", email);
