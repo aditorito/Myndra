@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom";
 import Menu from "../components/Menu.jsx";
 import Footer from "../components/Footer.jsx";
 import { motion } from "motion/react"
+import { useContext } from "react";
+import { AuthContext } from "../../src/context/AuthContext.jsx";
 
 export default function Home() {
+  const { isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -53,10 +56,10 @@ export default function Home() {
                 Careers
               </button>
               <button
-                onClick={() => navigate("/LogIn")}
+                onClick={() => navigate(isAuthenticated ? "/profile" : "/LogIn")}
                 className="border border-white text-white px-4 xl:px-5 py-1.5 rounded-xl hover:bg-white hover:text-[#075056] transition-colors"
               >
-                Log in
+                {isAuthenticated ? "Profile" : "Log in"}
               </button>
             </nav>
 
@@ -225,7 +228,7 @@ export default function Home() {
           <div className="hidden md:block mt-6">
             {/* Container with responsive grid */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
-              
+
               {/* CARD 1 - Takes full width on tablet, positioned left on desktop */}
               <article className="lg:col-start-1 lg:col-end-5 lg:row-start-1 bg-[#FEF6E3] rounded-3xl p-6 shadow-sm z-20">
                 <div className="flex items-center gap-3">
@@ -311,7 +314,7 @@ export default function Home() {
               <div className="lg:col-start-1 lg:col-end-6 lg:row-start-2 lg:row-end-4 lg:mt-24 relative">
                 {/* Blue left border */}
                 <div className="absolute left-0 top-0 w-1 h-32 bg-[#075056]"></div>
-                
+
                 <div className="pl-8">
                   <h3
                     className="text-[1.6rem] lg:text-[1.8rem] xl:text-[2rem] font-bold leading-tight mb-2"
@@ -336,7 +339,7 @@ export default function Home() {
 
                 {/* Orange triangle decoration - positioned at bottom right */}
                 <div className="absolute bottom-4 right-12">
-                  <div 
+                  <div
                     className="w-0 h-0 border-l-[24px] border-l-transparent border-r-[24px] border-r-transparent border-b-[24px] border-b-[#FF8C42]"
                     style={{ transform: 'rotate(15deg)' }}
                   ></div>

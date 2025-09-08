@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Search, Bell, Mail, Plus } from "lucide-react";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext.jsx";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const ProfilePage = () => {
+  const { isAuthenticated } = useContext(AuthContext);  
   const [formData, setFormData] = useState({
     fullName: "",
     nickName: "",
@@ -192,10 +195,10 @@ const ProfilePage = () => {
               Careers
             </button>
             <button
-              onClick={() => navigate("/LogIn")}
-              className="border border-white text-white px-4 xl:px-5 py-1.5 rounded-xl hover:bg-white hover:text-[#075056] transition-colors"
+                onClick={() => navigate(isAuthenticated ? "/profile" : "/LogIn")}
+              className="border border-black text-black px-4 xl:px-5 py-1.5 rounded-xl hover:bg-black hover:text-white transition-colors whitespace-nowrap"
             >
-              Log in
+              {isAuthenticated ? "Profile" : "Log in"}
             </button>
           </nav>
 

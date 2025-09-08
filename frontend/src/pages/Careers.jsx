@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom";
 import Menu from "../components/Menu.jsx";
 import RImg from "../components/RImg.jsx";
 import Footer from "../components/Footer.jsx";
+import { useContext } from "react";
+import { AuthContext } from "../../src/context/AuthContext.jsx";
 
 export default function Careers() {
+  const { isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -58,10 +61,10 @@ export default function Careers() {
             </nav>
 
             <button
-              onClick={() => navigate("/LogIn")}
+                onClick={() => navigate(isAuthenticated ? "/profile" : "/LogIn")}
               className="border border-black text-black px-4 xl:px-5 py-1.5 rounded-xl hover:bg-black hover:text-white transition-colors whitespace-nowrap"
             >
-              Log in
+              {isAuthenticated ? "Profile" : "Log in"}
             </button>
           </div>
 

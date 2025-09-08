@@ -4,10 +4,13 @@ import axios from "axios";
 import RImg from "../components/RImg.jsx";
 import { useNavigate } from "react-router-dom";
 import Menu from "../components/Menu.jsx";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext.jsx";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function LogIn() {
+  const { isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -77,10 +80,10 @@ export default function LogIn() {
             </nav>
 
             <button
-              onClick={() => navigate("/LogIn")}
+                onClick={() => navigate(isAuthenticated ? "/profile" : "/LogIn")}
               className="border border-black text-black px-4 xl:px-5 py-1.5 rounded-xl hover:bg-black hover:text-white transition-colors whitespace-nowrap"
             >
-              Log in
+              {isAuthenticated ? "Profile" : "Log in"}
             </button>
           </div>
 

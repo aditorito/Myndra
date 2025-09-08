@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
 import "./index.css";
 
 // Crash overlay so a blank screen can't hide errors
@@ -37,7 +38,9 @@ mountCrashOverlay();
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>    
     </BrowserRouter>
   </React.StrictMode>
 );
